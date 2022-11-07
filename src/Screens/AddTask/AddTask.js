@@ -1,25 +1,24 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView,Image } from 'react-native';
+import imagesPath from '../../constants/imagesPath';
+
+import styles from './styles';
+
+
+
 
 // create a component
 const AddTask = () => {
     return (
-        <View style={styles.container}>
-            <Text>AddTask</Text>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.topView}>
+            <Image source={imagesPath.icBackward}/>
+            <Text> New Reminder</Text>
+            </View>
+        </SafeAreaView>
     );
 };
-
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
-    },
-});
 
 //make this component available to the app
 export default AddTask;
