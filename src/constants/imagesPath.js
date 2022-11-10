@@ -5,7 +5,7 @@ export default {
     icApple:require('../assets/images/ic_apple.png'),
     icFb:require('../assets/images/ic_facebook.png'),
     icMail:require('../assets/images/ic_mail.png'),
-    icPlus:require('../assets/images/Group 4.png'),
+    icPlus:require('../assets/images/plus.png'),
     icHome:require('../assets/images/ic_home1.png'),
     icAlarm:require('../assets/images/ic_time1.png'),
     icCalender:require('../assets/images/ic_calender.png'),
@@ -14,7 +14,13 @@ export default {
     icTick:require('../assets/images/ic_tick.png'),
     icProfile:require('../assets/images/ic_tick.png'),
     icIos:require('../assets/images/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png'),
-    icBack:require('../assets/images/76f1564df910189c6a86431e2b1ae241.png')
+    icBack:require('../assets/images/76f1564df910189c6a86431e2b1ae241.png'),
+    icSpinn:require('../assets/images/spinn.jpg'),
+    icgreenTick :require('../assets/images/ic_tick2.png'),
+    icUser :require('../assets/images/ic_account.png'),
+    icOpen :require('../assets/images/eyeopen.png'),
+    icClose :require('../assets/images/hidepassword.png'),
+
 
     
     

@@ -1,6 +1,6 @@
 //import liraries
 //import liraries
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import ButtonComp from '../../Components/ButtonComp';
 import HeaderComp from '../../Components/HeaderComp';
@@ -11,11 +11,49 @@ import styles from './styles';
 import imagesPath from '../../constants/imagesPath'
 import SocialComp from '../../Components/SocialComp';
 import navigationString from '../../constants/NavigationString';
+import NavigationString from '../../constants/NavigationString';
 
 
 
 // create a component
 const SignUp = ({navigation}) => {
+    const[isVisible,setVisible]=useState(!isVisible)
+    const [email,setEmail]=useState('')
+    const [name,setName]=useState('')
+    const [phone,setPhone]=useState('')
+    const [password,setPassword]=useState('')
+    const goLogin =()=>{
+      
+        if (email== '' && password == '' && name == '' && phone == '')
+        {
+            alert('plz enter email and password')
+            return
+        }
+        if (email== '' )
+        {
+            alert('plz enter email')
+            return
+        }
+        if ( password == '')
+        {
+            alert('plz enter  password')
+            return
+        }
+        if ( phone == '')
+        {
+            alert('plz enter  password')
+            return
+        }
+        if ( name == '')
+        {
+            alert('plz enter  password')
+            return
+        }
+
+        else {
+            navigation.navigate(NavigationString.HOME)}
+        }
+   
     return (
         <SafeAreaView style={styles.container}>
             <HeaderComp />
@@ -24,20 +62,36 @@ const SignUp = ({navigation}) => {
             </View>
             <View style={{ marginTop: moderateScaleVertical(16) }}>
                 <TextInputComp
-                    placeholder='Name' />
+                    placeholder='Name' 
+                    value={name}
+                    onChangeText={(name)=>setName(name)}
+                    
+                    
+                    />
                 <TextInputComp
-                    placeholder='Phone Number' />
+                    placeholder='Phone Number'
+                    
+                    value={phone}
+                    onChangeText={(phone)=>setPhone(phone)} />
                 <TextInputComp
-                    placeholder='Email Address' />
+                    placeholder='Email Address'
+                    value={email}
+                    onChangeText={(email)=>setEmail(email)} />
                 <TextInputComp
-                    placeholder='Password' />
+                    placeholder='Password'
+                    value={password}
+                    onChangeText={(password)=>setPassword(password)}
+                    icon ={isVisible?imagesPath.icClose:imagesPath.icOpen}
+                    
+                    
+                    />
 
 
             </View>
             <TouchableOpacity>
                 <Text style={styles.forStyle}>Forget Password</Text>
             </TouchableOpacity>
-            <ButtonComp
+            <ButtonComp onPress={goLogin}
                 text='Sign Up' />
             <View style={styles.orStyle}>
                 <Text style={styles.testStyle}>OR</Text>

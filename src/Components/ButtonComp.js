@@ -10,13 +10,14 @@ const ButtonComp = (
 
     {
         text,
-        onPress
+        onPress,
+        btnStyle
     }
 ) => {
     return (
 
         <TouchableOpacity onPress={onPress}
-        style={styles.container}>
+        style={{...styles.container,...btnStyle}}>
             <Text style={styles.txtStyle}>{text}</Text>
         </TouchableOpacity>
     );

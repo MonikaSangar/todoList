@@ -3,6 +3,7 @@ export default {
     white:'#fafafa',
     grey:'#f1f1f4',
     txtColor:'grey',
-    black:'#000'
+    black:'#000',
+    lightPurple:'#9999FF'
 
 }

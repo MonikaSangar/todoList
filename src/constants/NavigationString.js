@@ -1,8 +1,12 @@
 export default{
-    HOME:'Home',
+  HOME:'Home',
   LOGIN:'Login',
   SIGNUP:'SignUp',
   ADDTASK:'AddTask',
   ONBOARDING:'OnBoarding',
-  REMINDER:'Reminder'
+  REMINDER:'Reminder',
+  TABROUTES:'TabRoutes',
+  CALENDER:'Calender',
+  PROFILE:'Profile',
+  ALARM:'Alarm'
 }

@@ -76,13 +76,43 @@ const styles = StyleSheet.create({
         height: moderateScaleVertical(48),
         borderRadius: moderateScale(8),
         flexDirection: 'row',
-        padding: moderateScale(16)
+        padding: moderateScale(16),
+        alignItems: 'center'
     },
     lastView:
     {
         flex: 1,
         justifyContent: 'flex-end'
-    }
+    },
+    modalStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    viewStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }, tickStyle:
+    {
+        backgroundColor: colorsPath.purple,
+        height: 180,
+        width: 300,
+        borderRadius: 8,
+        alignSelf: 'center'
+    },
+    tickViewStyle:{ 
+        justifyContent: 'center', 
+        alignItems: 'center',
+         marginTop: 14 
+        },
+        txtStyle:
+        {  
+            textAlign: 'center',
+             color: colorsPath.white, 
+             fontWeight: '700', 
+             lineHeight: 22 }
+
 })
 
 export default styles;

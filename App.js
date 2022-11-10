@@ -1,10 +1,10 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import { Provider } from 'react-redux';
 import colorsPath from './src/constants/colorsPath';
 import Routes from './src/Navigation/Routes';
-import { Login, OnBoarding } from './src/Screens';
-import Reminder from './src/Screens/Reminder/Reminder';
+import store from './src/redux/store';
 
 
 
@@ -15,7 +15,10 @@ import Reminder from './src/Screens/Reminder/Reminder';
 const App = () => {
   return (
     <SafeAreaView style={{flex:1,backgroundColor:colorsPath.grey}}>
-   <Routes/>
+      <Provider store={store}>
+      <Routes/>
+      </Provider>
+   
  
  
     </SafeAreaView>

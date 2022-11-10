@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import ButtonComp from '../../Components/ButtonComp';
 import HeaderComp from '../../Components/HeaderComp';
@@ -12,6 +12,37 @@ import styles from './styles';
 
 // create a component
 const Login = ({navigation}) => {
+    const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+
+
+    const goLogin =()=>{
+        if (email== '' && password == '')
+        {
+            alert('plz enter email and password')
+            return
+        }
+        if (email== '' )
+        {
+            alert('plz enter email')
+            return
+        }
+        if ( password == '')
+        {
+            alert('plz enter  password')
+            return
+        }
+
+
+
+
+
+        else {
+            navigation.navigate(NavigationString.HOME)}
+        }
+
+    
+    
     return (
         <View style={styles.container}>
             <HeaderComp/>
@@ -20,13 +51,25 @@ const Login = ({navigation}) => {
             </View>
             <View style={{marginTop:24}}>
             <TextInputComp
-            placeholder='Email Address'/>
+            placeholder='Email Address'
+            value={email}
+            onChangeText={(email)=>setEmail(email)}
+            
+            
+            
+            
+            />
             <TextInputComp
-            placeholder='Password'/>
+            placeholder='Password'
+            value={password}
+            onChangeText={(password)=>setPassword(password)}
+            
+            
+            />
             <TouchableOpacity>
                 <Text style={styles.forStyle}>Forget Password</Text>
             </TouchableOpacity>
-            <ButtonComp onPress={()=>navigation.navigate(NavigationString.REMINDER)}
+            <ButtonComp onPress={goLogin}
             text='Login'/>
             </View>
             <View style={styles.endView}>
@@ -43,7 +86,8 @@ const Login = ({navigation}) => {
            
         </View>
     );
-};
+}
+
 
 
 //make this component available to the app
