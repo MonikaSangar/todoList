@@ -1,6 +1,6 @@
 //import liraries
 import React, { useState } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StatusBar, Text, TextInput, TouchableOpacity, View,statusBarStyle,statusBarTransition ,hidden} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import Modal from "react-native-modal";
 import ButtonComp from '../../Components/ButtonComp';
@@ -12,10 +12,6 @@ import NavigationString from '../../constants/NavigationString';
 import { useSelector } from 'react-redux';
 import store from '../../redux/store';
 import { ADD_NOTE } from '../../redux/action';
-
-
-
-
 
 
 // create a component
@@ -44,7 +40,7 @@ const Reminder = ({ navigation,route}) => {
     const toggleModal1 = () => {
 
         setModalVisible(!isModalVisible);
-        store.dispatch(ADD_NOTE({title,notes}))
+        store.dispatch(ADD_NOTE({title,notes,date,time}))
         navigation.navigate(NavigationString.HOME)
     };
     const displayTimepicker = () => {
@@ -60,6 +56,7 @@ const Reminder = ({ navigation,route}) => {
      };
 
     return (
+       
         <View style={styles.container}>
             <View style={styles.topView}>
                 <TouchableOpacity onPress={() => navigation.popToTop()}>
@@ -155,6 +152,9 @@ const Reminder = ({ navigation,route}) => {
 
 
         </View>
+      
+      
+       
     );
 };
 export default Reminder;

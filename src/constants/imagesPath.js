@@ -20,6 +20,8 @@ export default {
     icUser :require('../assets/images/ic_account.png'),
     icOpen :require('../assets/images/eyeopen.png'),
     icClose :require('../assets/images/hidepassword.png'),
+    icBin:require('../assets/images/1345874.png'),
+    icHeart:require('../assets/images/Screenshot.jpeg')
 
 
     

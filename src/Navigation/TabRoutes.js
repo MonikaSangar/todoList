@@ -15,8 +15,10 @@ const Tab = createBottomTabNavigator();
 
 function TabRoutes() {
     return (
-      <Tab.Navigator screenOptions={{headerShown:false , tabBarStyle:{margin:16}}}>
+      <Tab.Navigator 
+      screenOptions={{headerShown:false , tabBarStyle:{margin:16,height:74},tabBarShowLabel:false}}>
         <Tab.Screen options={{
+          
         tabBarIcon: ({ route, focused }) => {
           return (
             <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icHome} />
@@ -26,7 +28,7 @@ function TabRoutes() {
          <Tab.Screen options={{
         tabBarIcon: ({ route, focused }) => {
           return (
-            <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icAlarm} />
+            <Image source={imagesPath.icAlarm} />
           )
         }
       }}
@@ -34,16 +36,19 @@ function TabRoutes() {
          <Tab.Screen options={{
         tabBarIcon: ({ route, focused }) => {
           return (
-            <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icPlus} />
+            <Image source={imagesPath.icPlus} />
           )
         }
       }}
           name={NavigationString.REMINDER} component={Reminder} />
         <Tab.Screen 
         options={{
+          tabBarStyle:{display:'none'},
           tabBarIcon: ({ route, focused }) => {
             return (
-              <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icCalender} />
+              <Image 
+              // style={{ tintColor: focused ? colorsPath.purple : null }}
+              source={imagesPath.icCalender} />
             )
           }
         }} name={NavigationString.CALENDER} component={Calender} />
@@ -51,7 +56,7 @@ function TabRoutes() {
          options={{
           tabBarIcon: ({ route, focused }) => {
             return (
-              <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icUser} />
+              <Image source={imagesPath.icUser} />
             )
           }
         }} name={NavigationString.PROFILE} component={Profile} />

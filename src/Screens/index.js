@@ -7,5 +7,6 @@ export {default as Alarm} from './Alarm/Alarm'
 export {default as Reminder} from './Reminder/Reminder';
 export {default as Calender} from './Calender/Calender';
 export {default as Profile} from './Profile/Profile';
+export {default as ItemDetail } from './ItemDetail/ItemDetail';
 
 

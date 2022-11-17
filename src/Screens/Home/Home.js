@@ -1,5 +1,7 @@
 //import liraries
-import { takeLast } from 'list';
+
+//get globally state//
+import { contains, takeLast } from 'list';
 import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -11,10 +13,11 @@ import styles from './styles';
 
 
 // create a component
-const Home = ({ navigation,route }) => {
-    let todoData = useSelector(myData=>myData.add)
-    console.log("this is data in Home ",todoData)
-    const[focused,setFocused]=useState('')
+const Home = ({ navigation, route }) => {
+    let todoData = useSelector(myData => myData.add)
+    console.log("this is data in Home ", todoData)
+
+    const [focused, setFocused] = useState('')
     const [data, setData] = useState([
         {
             name: 'Lorem Ipsum',
@@ -39,14 +42,12 @@ const Home = ({ navigation,route }) => {
             <View style={styles.flatStyle}>
                 <Text style={{ color: colorsPath.purple, fontWeight: "bold" }}>{item?.title}</Text>
                 <Text style={{ color: colorsPath.purple, fontWeight: "bold" }}>{item?.notes}</Text>
-                <View style={{backgroundColor:'#FFB266',padding:4,borderRadius:4}}>
-                <Text>{item?.time}</Text>
+                <View style={{ backgroundColor: '#FFB266', padding: 4, borderRadius: 4 }}>
+                    <Text>{item?.time}</Text>
                 </View>
             </View>
         )
     }
-
-
     return (
         <View style={styles.container}>
             <Text style={styles.txtStyle}>Home Lorem!</Text>
@@ -54,7 +55,11 @@ const Home = ({ navigation,route }) => {
 
             <View style={styles.boxStyle}>
                 <View style={{ flex: 1 }}>
-                    <Text style={styles.dailyStyle}>Daily Tasks</Text>
+                    <Text style={{
+                        color: 'dark-blue',
+                        marginTop: 14,
+                        fontWeight: '400'
+                    }}>Daily Tasks </Text>
                     <View style={styles.imgStyle}>
                         <Image source={imagesPath.icgreenTick} />
                         <Text style={styles.fiveStyle}> 5/10</Text>
@@ -89,10 +94,10 @@ const Home = ({ navigation,route }) => {
 
             <FlatList
                 renderItem={renderItem}
-                data={todoData} 
-                />
+                data={todoData}
+            />
 
-         
+
         </View>
     );
 };

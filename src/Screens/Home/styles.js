@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
         marginTop:moderateScaleVertical(16),
         flexDirection:"row",
         justifyContent:'space-between',
-        alignItems:'center'
+        alignItems:'center',
+      
 
     },
     dailyStyle:{

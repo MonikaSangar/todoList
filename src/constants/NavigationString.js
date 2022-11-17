@@ -8,5 +8,6 @@ export default{
   TABROUTES:'TabRoutes',
   CALENDER:'Calender',
   PROFILE:'Profile',
-  ALARM:'Alarm'
+  ALARM:'Alarm',
+  ITEMDETAIL:'ItemDetail'
 }
