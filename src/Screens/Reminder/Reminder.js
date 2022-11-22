@@ -11,7 +11,8 @@ import styles from './styles';
 import NavigationString from '../../constants/NavigationString';
 import { useSelector } from 'react-redux';
 import store from '../../redux/store';
-import { ADD_NOTE } from '../../redux/action';
+import { ADD_NOTE } from '../../redux/actions/action';
+
 
 
 // create a component

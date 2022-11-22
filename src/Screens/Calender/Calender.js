@@ -1,12 +1,26 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { Component, useEffect, useState } from 'react';
+import { View, Text, StyleSheet ,Button} from 'react-native';
+
 
 // create a component
 const Calender = () => {
+    const[name,setName]=useState(0) // consturtoe initiate
+
+    useEffect(()=>{
+        
+        alert('useEffect',name) 
+        return ()=>{
+            console.log('components will unmount')
+        }
+
+    },[name])
     return (
         <View style={styles.container}>
-            <Text>Calender</Text>
+            <Button onPress={()=>setName(name+1)}
+            title='click me' 
+            />
+            <Text>{name}</Text>
         </View>
     );
 };
@@ -17,7 +31,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+       
     },
 });
 

@@ -1,15 +1,15 @@
 //import liraries
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FlatList, Image, StyleSheet, Text, View ,ActivityIndicator, TouchableOpacity} from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View, ActivityIndicator, TouchableOpacity } from 'react-native';
 import colorsPath from '../../constants/colorsPath';
 import imagesPath from '../../constants/imagesPath';
 import NavigationString from '../../constants/NavigationString';
 
 // create a component
-const Alarm = ({navigation,route}) => {
+const Alarm = ({ navigation, route }) => {
     const [data, setData] = useState([])
-    const[off,setOff] = useState(0)
+    const [off, setOff] = useState(0)
     // const [loading,setLoading]=useState(false)
 
     useEffect(() => {
@@ -18,65 +18,65 @@ const Alarm = ({navigation,route}) => {
 
     const myData = async () => {
         try {
-            
-            const prevData=data
+
+            const prevData = data
             const res = await axios.get(`https://dummyjson.com/products?skip=${off}&limit=${20}`)
             console.log('data', res);
-            const some =res?.data?.products
+            const some = res?.data?.products
             // console.log('ju',some)
-            console.log('merged data',[...prevData,...some])
+            console.log('merged data', [...prevData, ...some])
             setData(some)
-            setData([...prevData,...some])
-            setOff(off+20)
+            setData([...prevData, ...some])
+            setOff(off + 20)
         }
 
         catch (error) {
-            console.log('error',error)
+            console.log('error', error)
         }
     }
 
-    const Submit=(item)=>{
-        navigation.navigate(NavigationString.ITEMDETAIL,{id:item.id,brand:item.brand})
-        
+    const Submit = (item) => {
+        navigation.navigate(NavigationString.ITEMDETAIL, { id: item.id })
+
     }
-  
+
 
     const renderItem = ({ item, index }) => {
         return (
 
-            
-            <TouchableOpacity onPress={()=>{
+
+            <TouchableOpacity onPress={() => {
                 Submit(item)
             }}
-            
+
                 style={{
-                backgroundColor: 'white',
-                padding: 8,
-                marginBottom: 14,
-                marginHorizontal: 14,
-                borderRadius: 14,
-                borderColor: colorsPath.purple,
-                borderWidth: 0.5,
-                flexDirection: 'row',
-                shadowColor:'grey',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 3,
-    shadowOpacity: 1.0
-            }}>
-             
-                <Image style={{ height: 140, width: 100}} source={{ uri: item?.thumbnail }} />
+                    backgroundColor: 'white',
+                    padding: 8,
+                    marginBottom: 14,
+                    marginHorizontal: 14,
+                    borderRadius: 14,
+                    borderColor: colorsPath.purple,
+                    borderWidth: 0.5,
+                    flexDirection: 'row',
+                    shadowColor: 'grey',
+                    shadowOffset: {
+                        width: 0,
+                        height: 3
+                    },
+                    shadowRadius: 3,
+                    shadowOpacity: 1.0
+                }}>
+
+                <Image style={{ height: 140, width: 100 }} source={{ uri: item?.thumbnail }} />
                 <View style={{ marginLeft: 10, flex: 1 }}>
-                    <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                    <Text style={{ fontSize: 16, fontWeight: '500' }}>{item?.title}</Text>
-                    <TouchableOpacity>
-                 <Image  style={{
-                        height:20,width:20,tintColor:'red',
-                        position:"absolute",
-                        right:4
-                        }}source={imagesPath.icBin}/>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <Text style={{ fontSize: 16, fontWeight: '500' }}>{item?.title}</Text>
+                        <TouchableOpacity>
+                            <Image style={{
+                                height: 20, width: 20, tintColor: 'red',
+                                position: "absolute",
+                                right: 4
+                            }} source={imagesPath.icBin} />
                         </TouchableOpacity>
                     </View>
                     <Text style={{ fontSize: 13, color: 'grey' }}>{item?.description}</Text>
@@ -101,13 +101,13 @@ const Alarm = ({navigation,route}) => {
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                onEndReached={()=>{
+                onEndReached={() => {
                     myData()
                 }}
             />
         </View>
     );
-};0
+}; 0
 
 // define your styles
 const styles = StyleSheet.create({

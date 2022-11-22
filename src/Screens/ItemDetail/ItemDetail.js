@@ -1,14 +1,13 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native';
+
+import axios from "axios";
+
 import ButtonComp from "../../Components/ButtonComp";
 import colorsPath from "../../constants/colorsPath";
 import imagesPath from "../../constants/imagesPath";
 import NavigationString from "../../constants/NavigationString";
-import { moderateScale, moderateScaleVertical, textScale } from "../../styles/responsive";
-
-
-
 
 const ItemDetail = ({ route, navigation }) => {
     const [data, setData] = useState([])
@@ -38,27 +37,41 @@ const ItemDetail = ({ route, navigation }) => {
     return (
         <View style={styles.container}>
 
-            <View>
-            <Text style={{fontSize:18,fontWeight:'bold',letterSpacing:0.8,marginBottom:8}}>{data?.title}</Text>
-                <Text>{data.description}</Text>
-                <Image style={{ height: 400, width: 300 ,alignSelf:'center',marginBottom:14,marginTop:14,borderRadius:8}}
+
+
+            < View>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', letterSpacing: 0.8, marginBottom: 8 }}>{data?.title}</Text>
+
+                <Image style={{ height: 400, width: 350, alignSelf: 'center', marginBottom: 14, borderRadius: 8 }}
                     source={{ uri: data?.thumbnail }} />
-                    <View style={{borderColor:colorsPath.purple,padding:14,borderWidth:1,borderRadius:8,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-                <Text style={{fontSize:18,fontWeight:'bold'}}>Price: ${data?.price} <Text style={{fontWeight:'200',fontSize:14}}> ({data?.discountPercentage}%off)</Text></Text>
-                <Image  style={{height:28,width:28}}source={imagesPath.icHeart}/>
+
+
+
+                <Text style={{ marginBottom: 12, color: colorsPath.txtColor, fontSize: 12 }}>{data.description}</Text>
+                <View style={{ flexDirection: 'row', marginBottom: 8, alignItems: 'center' }}>
+
+                    <Image style={{ height: 18, width: 18 }} source={imagesPath.icGStar} />
+                    <Image style={{ height: 18, width: 18 }} source={imagesPath.icGStar} />
+                    <Image style={{ height: 18, width: 18 }} source={imagesPath.icGStar} />
+                    <Image style={{ height: 18, width: 18 }} source={imagesPath.icGStar} />
+                    <Text style={{ fontSize: 12 }}>  8,153 ratings</Text>
+
+
+
+                </View>
+                <View style={{ borderColor: colorsPath.purple, padding: 14, borderWidth: 1, borderRadius: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Price: ${data?.price} <Text style={{ fontWeight: '200', fontSize: 14 }}> ({data?.discountPercentage}%off)</Text></Text>
+                    <Image style={{ height: 28, width: 28 }} source={imagesPath.icHeart} />
                 </View>
                 <ButtonComp
-                 text='Buy Now'
-                 onPress={()=>navigation.navigate(NavigationString.ALARM)}
+                    text='Buy Now'
+                    onPress={() => navigation.navigate(NavigationString.ALARM)}
                 />
-                 <ButtonComp
-                 btnStyle={{backgroundColor:'grey'}}
-                 text='Add to Cart'
-                 onPress={()=>navigation.navigate(NavigationString.ALARM)}
+                <ButtonComp
+                    btnStyle={{ backgroundColor: 'grey', marginTop: 8 }}
+                    text='Add to Cart'
+                    onPress={() => navigation.navigate(NavigationString.ALARM)}
                 />
-
-               
-
 
             </View>
         </View>
@@ -67,9 +80,9 @@ const ItemDetail = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-      marginVertical:48,
+        marginVertical: 24,
         marginHorizontal: 8,
-        alignItems:'center'
+        alignItems: 'center'
 
     }
 })

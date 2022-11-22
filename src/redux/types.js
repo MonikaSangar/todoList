@@ -1,3 +1,5 @@
 export default {
-    ADD_NOTE:'ADD_NOTE'
+    ADD_NOTE:'ADD_NOTE',
+    HOME_PRODUCTS:'HOME_PRODUCTS',
+    PRODUCTS:'PRODUCTS'
 }

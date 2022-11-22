@@ -7,18 +7,14 @@ import { Image } from "react-native";
 import colorsPath from "../constants/colorsPath";
 import imagesPath from "../constants/imagesPath";
 import NavigationString from "../constants/NavigationString";
-import { Login } from "../redux/action";
 import { AddTask, Alarm, Calender, Home, OnBoarding, Profile, Reminder, SignUp } from "../Screens";
 
-
 const Tab = createBottomTabNavigator();
-
 function TabRoutes() {
     return (
       <Tab.Navigator 
       screenOptions={{headerShown:false , tabBarStyle:{margin:16,height:74},tabBarShowLabel:false}}>
         <Tab.Screen options={{
-          
         tabBarIcon: ({ route, focused }) => {
           return (
             <Image style={{ tintColor: focused ? colorsPath.purple : null }} source={imagesPath.icHome} />

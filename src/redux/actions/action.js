@@ -1,6 +1,6 @@
 
 
-import types from "./types";
+import types from "../types";
 
 export function ADD_NOTE (data) {
     return{

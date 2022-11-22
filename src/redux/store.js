@@ -1,8 +1,13 @@
-import { createStore } from "redux";
-import { combineReducer } from "./reducer";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import { combineReducer } from "./reducers/reducer";
 
 
-const store = createStore(combineReducer)
+
+const middlewares=[thunk]
+
+
+const store = createStore(combineReducer,applyMiddleware(...middlewares))
 
 
 

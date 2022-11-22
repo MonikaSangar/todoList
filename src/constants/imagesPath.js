@@ -21,7 +21,9 @@ export default {
     icOpen :require('../assets/images/eyeopen.png'),
     icClose :require('../assets/images/hidepassword.png'),
     icBin:require('../assets/images/1345874.png'),
-    icHeart:require('../assets/images/Screenshot.jpeg')
+    icHeart:require('../assets/images/Screenshot.jpeg'),
+    icStar:require('../assets/images/star.jpeg'),
+    icGStar:require('../assets/images/star.png'),
 
 
     

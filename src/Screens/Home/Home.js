@@ -1,8 +1,9 @@
 //import liraries
 
 //get globally state//
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { contains, takeLast } from 'list';
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import ButtonComp from '../../Components/ButtonComp';
@@ -11,12 +12,24 @@ import imagesPath from '../../constants/imagesPath';
 import NavigationString from '../../constants/NavigationString';
 import styles from './styles';
 
-
 // create a component
 const Home = ({ navigation, route }) => {
     let todoData = useSelector(myData => myData.add)
-    console.log("this is data in Home ", todoData)
 
+    const getData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem('@storage_Key')
+          console.log("data in get item function",jsonValue)
+          return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch(e) {
+         console.log("error in home screen ", jsonValue)
+        }
+      }
+      
+      useEffect(()=>{
+
+      },[])
+    console.log("this is data in Home ", todoData)
     const [focused, setFocused] = useState('')
     const [data, setData] = useState([
         {

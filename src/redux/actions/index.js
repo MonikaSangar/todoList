@@ -1,0 +1,5 @@
+product
+
+export default {
+    ...products
+}
