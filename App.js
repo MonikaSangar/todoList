@@ -3,7 +3,7 @@ import React from 'react';
 
 import { SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
-import colorsPath from './src/constants/colorsPath';
+
 import Routes from './src/Navigation/Routes';
 import store from './src/redux/store';
 
@@ -11,7 +11,7 @@ import store from './src/redux/store';
 // create a component
 const App = () => {
   return (
-    <SafeAreaView style={{flex:1,backgroundColor:colorsPath.grey}}>
+    <SafeAreaView style={{flex:1}}>
       <Provider store={store}>
       <Routes/>
       </Provider>

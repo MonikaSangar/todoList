@@ -1,15 +1,14 @@
-//import liraries
+import React, { useEffect, useState } from 'react';
+import { FlatList, Image, Text, View } from 'react-native';
 
-//get globally state//
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { contains, takeLast } from 'list';
-import React, { Component, useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
+
 import ButtonComp from '../../Components/ButtonComp';
+
 import colorsPath from '../../constants/colorsPath';
 import imagesPath from '../../constants/imagesPath';
-import NavigationString from '../../constants/NavigationString';
+
 import styles from './styles';
 
 // create a component
@@ -116,7 +115,7 @@ const Home = ({ navigation, route }) => {
 };
 
 
-
-
 //make this component available to the app
 export default Home;
+
+// https://projects.invisionapp.com/d/#/projects/prototypes/22161075

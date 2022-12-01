@@ -24,6 +24,7 @@ export default {
     icHeart:require('../assets/images/Screenshot.jpeg'),
     icStar:require('../assets/images/star.jpeg'),
     icGStar:require('../assets/images/star.png'),
+    icDrop:require('../assets/images/down.png'),
 
 
     
