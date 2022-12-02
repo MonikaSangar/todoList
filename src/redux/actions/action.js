@@ -2,9 +2,9 @@
 
 import types from "../types";
 
-export function ADD_NOTE (data) {
+export function USERDATA (data) {
     return{
-        type:types.ADD_NOTE,
+        type:types.USERDATA,
         payload:data
     }
 }

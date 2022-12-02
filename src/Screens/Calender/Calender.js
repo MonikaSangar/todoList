@@ -41,17 +41,28 @@
 //import liraries
 import React, { Component, useEffect, useState } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity} from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import colorsPath from '../../constants/colorsPath';
 import NavigationString from '../../constants/NavigationString';
+import UserData from '../../redux/reducers/data';
+import store from '../../redux/store';
+
+
+
 
 // create a component
 const Calender = (props) => {
+    const myState =useSelector((state)=>state.homeData)
+    
+
+  
+     
     console.log(props)
     const {route,navigation} = props
     const data = route?.params
     const[prevScreenData,setPrevScreenData] = useState([{}])
     useEffect(() => {
-      setPrevScreenData([...prevScreenData,data])
+    
     }, [])
     
     console.log(prevScreenData,"routei8i")
