@@ -148,13 +148,13 @@ const State = [
 
 const App = ({navigation, route}) => {
 //   console.log('navigation', route?.params);
-  const [name, setName] = useState();
-  const [lname, setLName] = useState([]);
-  const [state, setState] = useState([]);
-  const [city, setCity] = useState([]);
+  const [name, setName] = useState('');
+  const [lname, setLName] = useState('');
+  const [state, setState] = useState('');
+  const [city, setCity] = useState('');
   const Submit = () => {
     console.log("name",name)
-    navigation.navigate(NavigationString.CALENDER, {name:data?.name});
+    navigation.navigate(NavigationString.CALENDER, {name:name,lname:lname,state:state,city:city});
   };
 
   return (
@@ -174,8 +174,8 @@ const App = ({navigation, route}) => {
         valueField="value"
         placeholder="Enter your FName"
         value={name}
-        onChange={item => {
-          setName(item.value);
+        onChange={item=> {
+          setName(item);
         }}
       />
       <Dropdown
@@ -193,7 +193,7 @@ const App = ({navigation, route}) => {
         searchPlaceholder="Search..."
         value={lname}
         onChange={item => {
-          setLName(item.value);
+          setLName(item);
         }}
       />
 
@@ -206,7 +206,7 @@ const App = ({navigation, route}) => {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder="Enter your City"
+        placeholder="Enter your State"
         value={state}
         onChange={item => {
           setState(item.value);
@@ -225,7 +225,7 @@ const App = ({navigation, route}) => {
         placeholder="Enter your State"
         value={city}
         onChange={item => {
-          setCity(item.value);
+          setCity(item);
         }}
       />
       <View style={{margin: 16}}>

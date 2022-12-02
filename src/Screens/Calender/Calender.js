@@ -39,18 +39,39 @@
 // export default Calender;
 
 //import liraries
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity} from 'react-native';
 import colorsPath from '../../constants/colorsPath';
 import NavigationString from '../../constants/NavigationString';
 
 // create a component
-const Calender = ({navigation,route,props}) => {
-    console.log(props,"props")
+const Calender = (props) => {
+    console.log(props)
+    const {route,navigation} = props
+    const data = route?.params
+    const[prevScreenData,setPrevScreenData] = useState([{}])
+    useEffect(() => {
+      setPrevScreenData([...prevScreenData,data])
+    }, [])
+    
+    console.log(prevScreenData,"routei8i")
     return (
         <View style={styles.container}>
+            <Text style={{fontSize:24,marginBottom:18,fontWeight:'600'}}>User Details:</Text>
+            {prevScreenData?.map((item)=>{
+                return(
+                    <View>
+            <View style={{borderColor:colorsPath.purple,padding:16,borderWidth:.5,borderRadius:4}}>
+            <Text style={styles.fontStyle}>Name: {item?.name}</Text>
+            <Text style={styles.fontStyle}>LastName: {item?.lastName}</Text>
+            <Text style={styles.fontStyle}>State: {item?.state}</Text>
+            <Text style={styles.fontStyle}>City: {item?.city}</Text>
+            </View>
+            </View>
+                )
+            })}
          <TouchableOpacity  onPress={()=>navigation.navigate(NavigationString.PROFILE)}
-         style={{backgroundColor:colorsPath.purple,height:64,width:64,borderRadius:34,alignSelf:'flex-end',alignItems:'center'}}>
+         style={{backgroundColor:colorsPath.purple,height:64,width:64,borderRadius:34,alignSelf:'flex-end',alignItems:'center',marginTop:48}}>
          <Text style={{fontSize:48,color:'white'}}>+</Text>
          </TouchableOpacity >
         </View>
@@ -61,12 +82,13 @@ const Calender = ({navigation,route,props}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        justifyContent:'flex-end',
-       
-        margin:48
+        margin:48,
+    
     },
+    fontStyle:{
+        fontSize:16,
+        marginBottom:18
+    }
 });
 
 //make this component available to the app

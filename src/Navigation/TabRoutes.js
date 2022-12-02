@@ -7,7 +7,7 @@ import { Image } from "react-native";
 import colorsPath from "../constants/colorsPath";
 import imagesPath from "../constants/imagesPath";
 import NavigationString from "../constants/NavigationString";
-import { AddTask, Alarm, Calender, Home, OnBoarding, Profile, Reminder, SignUp } from "../Screens";
+import { AddTask, Alarm, Calender, Home, MyProfile, OnBoarding, Profile, Reminder, SignUp } from "../Screens";
 
 const Tab = createBottomTabNavigator();
 function TabRoutes() {
@@ -39,7 +39,7 @@ function TabRoutes() {
           name={NavigationString.REMINDER} component={Reminder} />
         <Tab.Screen 
         options={{
-          tabBarStyle:{display:'none'},
+          // tabBarStyle:{display:'none'},
           tabBarIcon: ({ route, focused }) => {
             return (
               <Image 
@@ -55,7 +55,7 @@ function TabRoutes() {
               <Image source={imagesPath.icUser} />
             )
           }
-        }} name={NavigationString.PROFILE} component={Profile} />
+        }} name={NavigationString.PROFILE} component={MyProfile} />
       
       </Tab.Navigator>
     );
